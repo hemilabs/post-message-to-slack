@@ -1,0 +1,15 @@
+name: NPM Publish
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  publish-to-npm:
+    permissions:
+      contents: read
+      id-token: write
+    uses: hemilabs/actions/.github/workflows/npm-publish.yml@a1ac56db94ab1abfdc2e8fbca1cbe5e2a82b8e24 # PR#22
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
